@@ -1,0 +1,44 @@
+name: Deploy qWizard MVP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up environment
+      run: chmod +x ./02_Setup_Environment.sh && ./02_Setup_Environment.sh
+
+    - name: Create directory structure
+      run: chmod +x ./03_Create_Directory_Structure.sh && ./03_Create_Directory_Structure.sh
+
+    - name: Define quantum extensions
+      run: chmod +x ./04_Define_Quantum_Extensions.sh && ./04_Define_Quantum_Extensions.sh
+
+    - name: Initialize qWizard
+      run: chmod +x ./05_Initialize_qWizard.sh && ./05_Initialize_qWizard.sh
+
+    - name: Generate textbook structure
+      run: chmod +x ./06_Generate_Textbook_Structure.sh && ./06_Generate_Textbook_Structure.sh
+
+    - name: Create Librarian
+      run: chmod +x ./07_Create_Librarian.sh && ./07_Create_Librarian.sh
+
+    - name: Create user and admin interface
+      run: chmod +x ./08_User_Admin_Interface.sh && ./08_User_Admin_Interface.sh
+
+    - name: Implement quantum messaging protocol
+      run: chmod +x ./09_Quantum_Messaging_Protocol.sh && ./09_Quantum_Messaging_Protocol.sh
+
+    - name: Run tests
+      run: chmod +x ./10_Test_Scripts.sh && ./10_Test_Scripts.sh
+
+    - name: Deploy MVP
+      run: chmod +x ./11_Deploy_MVP.sh && ./11_Deploy_MVP.sh
